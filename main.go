@@ -3,7 +3,9 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"math/rand"
+	"bytes"
 )
 
 // Begun 11/22/2026 by guac, with the hopes of building something from scratch.
@@ -14,5 +16,9 @@ var startupMessages = [...]string{
 };
 
 func main() {
-	fmt.Println(startupMessages[rand.Intn(len(startupMessages))]);
+	fmt.Println(startupMessages[rand.Intn(len(startupMessages))]);	
+	var logbuf bytes.Buffer;
+	mainlog := log.New(&logbuf, "evermind:", log.LstdFlags | log.Lshortfile)
+	mainlog.Println("evermind alive");
+
 }
